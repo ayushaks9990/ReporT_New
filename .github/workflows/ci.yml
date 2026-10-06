@@ -1,0 +1,67 @@
+name: AI Analytic Platform CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install API dependencies
+        run: pip install -r requirements-dev.txt
+      - name: Test authenticated API flow
+        run: python -m pytest -q
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm ci
+      - name: Type-check and build frontend
+        working-directory: frontend
+        run: npm run build
+
+  postgres-rag:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_USER: report
+          POSTGRES_PASSWORD: report-test-password
+          POSTGRES_DB: report_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U report -d report_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      TEST_DATABASE_URL: postgresql+psycopg://report:report-test-password@localhost:5432/report_test
+      RUN_REAL_EMBEDDINGS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      - name: Cache MiniLM weights
+        uses: actions/cache@v4
+        with:
+          path: .cache/fastembed
+          key: fastembed-0.7.4-minilm-l6-v2
+      - name: Test persistence, retrieval and agent evidence on PostgreSQL
+        run: python -m pytest -q

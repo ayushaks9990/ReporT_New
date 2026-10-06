@@ -1,0 +1,43 @@
+services:
+  - type: web
+    name: ai-analytic-platform
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: ai-analytic-platform-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: SESSION_MINUTES
+        value: "10080"
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_API_URL
+        value: https://api.groq.com/openai/v1/chat/completions
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
+      - key: EMBEDDING_CACHE_DIR
+        value: /app/.cache/fastembed
+      - key: EMBEDDING_LOCAL_FILES_ONLY
+        value: "true"
+      - key: EMBEDDING_THREADS
+        value: "1"
+      - key: EMBEDDING_BATCH_SIZE
+        value: "16"
+      - key: RAG_TOP_K
+        value: "6"
+
+databases:
+  - name: ai-analytic-platform-db
+    plan: free
+    region: singapore
+    databaseName: ai_analytic_platform
+    user: ai_analytic_platform
