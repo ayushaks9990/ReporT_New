@@ -21,7 +21,11 @@
   <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
   <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
 </p>
-
+<p align="center">
+  <a href="https://ai-analytic-platform.onrender.com/login">
+    <img src="https://img.shields.io/badge/Live%20Demo-Visit%20Website-success?style=for-the-badge" alt="Live Demo" />
+  </a>
+</p>
 <p align="center">
   <a href="#overview">Overview</a> ·
   <a href="#multi-agent-intelligence">AI Agents</a> ·
@@ -31,9 +35,7 @@
   <a href="#deployment">Deployment</a> ·
   <a href="#api-reference">API</a>
 </p>
-
 ---
-
 ## Overview
 
 **AI Analytic Platform** is a full-stack business intelligence application that brings data ingestion, interactive analytics, semantic retrieval, and AI report generation into one workspace.
@@ -324,12 +326,10 @@ Vite proxies `/api` requests to the FastAPI server on port `8000`.
 ### Enable AI Reports
 
 Configure the following values in `.env` and restart the backend:
-
 ```dotenv
 GROQ_API_KEY=your_groq_api_key
 GROQ_MODEL=llama-3.3-70b-versatile
 ```
-
 AutoGen AgentChat is included in the application dependencies. `GROQ_API_KEY` enables the Analyst, Writer, and Critic workflow. Without a configured key, reports use the local report engine.
 
 ### Serve the Frontend Through FastAPI
