@@ -1,213 +1,171 @@
 <p align="center">
-  <img src="docs/ai-analytic-platform-readme-banner.svg" alt="AI Analytic Platform — AutoGen business intelligence platform" width="100%" />
+  <img src="docs/ai-analytic-platform-readme-banner.svg" alt="AI Analytic Platform — Sales and Marketing Intelligence" width="100%" />
 </p>
 
-<h1 align="center">⚡ AI Analytic Platform</h1>
+<h1 align="center">AI Analytic Platform</h1>
 
 <p align="center">
-  <strong>AutoGen-powered sales and marketing intelligence for decision-makers.</strong>
+  <strong>From business data to executive reports, powered by three specialist AI agents.</strong>
   <br />
-  Upload business data. Watch specialist agents investigate it. Leave with a verified executive report.
+  Sales analytics · Marketing intelligence · PostgreSQL RAG · Automated reporting
 </p>
 
 <p align="center">
-  <a href="https://fastapi.tiangolo.com/"><img src="https://img.shields.io/badge/FastAPI-0.141-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" /></a>
-  <a href="https://react.dev/"><img src="https://img.shields.io/badge/React-18-0B1020?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" /></a>
-  <a href="https://microsoft.github.io/autogen/"><img src="https://img.shields.io/badge/Microsoft-AutoGen-5B5FC7?style=for-the-badge&logo=microsoft&logoColor=white" alt="Microsoft AutoGen" /></a>
-  <a href="https://groq.com/"><img src="https://img.shields.io/badge/GROQ-Llama_3.3-F55036?style=for-the-badge" alt="GROQ" /></a>
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <br />
+  <img src="https://img.shields.io/badge/AutoGen-5B5FC7?style=for-the-badge" alt="Microsoft AutoGen" />
+  <img src="https://img.shields.io/badge/Groq-F55036?style=for-the-badge" alt="Groq" />
+  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3.12-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.12" />
-  <img src="https://img.shields.io/badge/TypeScript-5.7-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/PostgreSQL-Ready-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-  <img src="https://img.shields.io/badge/Docker-Multi--stage-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker" />
-  <img src="https://img.shields.io/badge/Render-Blueprint-6C5CE7?style=flat-square&logo=render&logoColor=white" alt="Render" />
-  <img src="https://img.shields.io/badge/API_Tests-Passing-37D39A?style=flat-square&logo=pytest&logoColor=white" alt="Tests passing" />
+  <a href="#overview">Overview</a> ·
+  <a href="#multi-agent-intelligence">AI Agents</a> ·
+  <a href="#postgresql-rag">RAG</a> ·
+  <a href="#architecture">Architecture</a> ·
+  <a href="#getting-started">Setup</a> ·
+  <a href="#deployment">Deployment</a> ·
+  <a href="#api-reference">API</a>
 </p>
 
-<p align="center">
-  <a href="#-the-product">Product</a> •
-  <a href="#-the-agentic-core">AutoGen agents</a> •
-  <a href="#-architecture">Architecture</a> •
-  <a href="#-run-it">Run locally</a> •
-  <a href="#-deploy-to-render">Deploy</a> •
-  <a href="#-api-surface">API</a>
-</p>
+---
 
-<p align="center">
-  <code>UPLOAD</code> &nbsp;→&nbsp; <code>MAP</code> &nbsp;→&nbsp; <code>ANALYZE</code> &nbsp;→&nbsp; <code>DEPLOY AGENTS</code> &nbsp;→&nbsp; <code>ACT</code>
-</p>
+## Overview
 
-## ✦ Why AI Analytic Platform exists
+**AI Analytic Platform** is a full-stack business intelligence application that brings data ingestion, interactive analytics, semantic retrieval, and AI report generation into one workspace.
 
-Business reporting is usually fragmented across spreadsheets, dashboard tools, prompt windows, and manually formatted documents. AI Analytic Platform compresses that workflow into one secure command center.
+Upload sales or marketing data, map its columns, and explore revenue, product performance, regional trends, and campaign efficiency. When you generate a report, three Microsoft AutoGen agents—**Analyst, Writer, and Critic**—use calculated metrics and relevant source records to produce a structured business narrative with recommendations.
 
-Users upload sales or marketing data, map unfamiliar columns, explore live visualizations, and generate decision-ready reports. Metrics are computed from the selected source, while the agentic layer turns evidence into a clear narrative. If external AI is unavailable, a deterministic verified-data engine keeps the reporting workflow operational.
+The backend calculates KPIs and chart series directly from the selected data. PostgreSQL stores business records and their vector embeddings, while retrieval supplies relevant records to all three agents. Saved reports retain their chart snapshots for later viewing, export, and printing.
 
 <table>
   <tr>
-    <td align="center"><strong>7</strong><br /><sub>REPORT MODES</sub></td>
-    <td align="center"><strong>3</strong><br /><sub>SPECIALIST AGENTS</sub></td>
-    <td align="center"><strong>10K</strong><br /><sub>ROWS PER UPLOAD</sub></td>
-    <td align="center"><strong>6</strong><br /><sub>REPORT PLOT FAMILIES</sub></td>
-    <td align="center"><strong>1</strong><br /><sub>RENDER BLUEPRINT</sub></td>
+    <td align="center"><strong>3</strong><br />Specialist AI agents</td>
+    <td align="center"><strong>7</strong><br />Report modes</td>
+    <td align="center"><strong>6</strong><br />Chart families</td>
+    <td align="center"><strong>10,000</strong><br />Rows per upload</td>
   </tr>
 </table>
 
-### The 30-second story
+## Core Capabilities
 
-~~~mermaid
-flowchart LR
-    A["01 · Create account"] --> B["02 · Upload data"]
-    B --> C["03 · Confirm mapping"]
-    C --> D["04 · Explore live signals"]
-    D --> E["05 · Deploy agents"]
-    E --> F["06 · Export decisions"]
-~~~
-
-## ◈ The product
-
-| Capability | What AI Analytic Platform delivers |
+| Capability | What you can do |
 |---|---|
-| **Agentic intelligence** | AutoGen Analyst, Report Writer, and Critic agents powered through GROQ |
-| **Bring your own data** | Drag-and-drop CSV/JSON upload, validation, type inference, and editable smart mapping |
-| **Visual evidence reports** | Six responsive plot families embedded in every applicable report and preserved in print |
-| **Seven report modes** | Executive, sales, marketing, quarterly, product, regional, and custom intelligence |
-| **Verified fallback** | Complete locally generated reports when AutoGen or GROQ is unavailable |
-| **Private workspaces** | Account-isolated datasets, reports, favorites, and exports |
-| **Production delivery** | FastAPI, React, PostgreSQL, Docker, Render Blueprint, health checks, and CI |
-## 🧠 The agentic core
+| **Data ingestion** | Upload CSV or JSON files with validation, type detection, and editable column mapping. |
+| **Interactive analytics** | Explore KPIs, trends, product contribution, regional performance, and marketing funnels. |
+| **Multi-agent reporting** | Generate reports through an Analyst, Writer, and Critic workflow with a controlled revision cycle. |
+| **Semantic retrieval** | Retrieve relevant business records using MiniLM embeddings stored in PostgreSQL with pgvector. |
+| **Custom analysis** | Ask a business question and provide additional instructions for the report. |
+| **Report workspace** | Save, search, favorite, reopen, and delete reports within your account. |
+| **Export and delivery** | Download Markdown or JSON, print reports to PDF, and optionally deliver them through email or Telegram. |
+| **Local reporting** | Generate deterministic reports from calculated metrics when the AI provider is unavailable or unconfigured. |
 
-AI Analytic Platform includes a real integration with the current **AutoGen AgentChat API** using:
+## How It Works
 
-~~~python
-from autogen_agentchat.agents import AssistantAgent
-from autogen_ext.models.openai import OpenAIChatCompletionClient
-~~~
+1. **Create an account** to access your datasets and reports.
+2. **Upload a dataset** or start with the bundled sales and marketing data.
+3. **Review column mappings** so the platform recognizes revenue, regions, products, campaigns, and other fields.
+4. **Explore the dashboard** and select the data and filters for your analysis.
+5. **Generate a report** using a predefined mode or a custom business question.
+6. **Review and share the result** through saved reports, downloads, printing, or configured delivery channels.
 
-### Proof in the repository
+## Multi-Agent Intelligence
 
-| Implementation | What it proves |
+The reporting pipeline uses **Microsoft AutoGen AgentChat** with Groq through an OpenAI-compatible model client. Each agent has a distinct role and receives the same source context: selected filters, calculated KPIs, chart series, rankings, and retrieved business records.
+
+| Agent | Responsibility |
 |---|---|
-| `backend/agent_engine.py::_new_model_client()` | Connects AutoGen's OpenAI-compatible client to GROQ inside the deployed API |
-| `backend/agent_engine.py::_run_pipeline()` | Creates and runs three real `AssistantAgent` instances with a revision loop |
-| `backend/agent_engine.py::_analysis_prompt()` | Locks analysis to the exact KPI and chart snapshot selected by the user |
-| `backend/embeddings.py` | Creates 384-dimensional MiniLM embeddings on CPU |
-| `backend/retrieval.py` | Stores/reuses PostgreSQL vectors and retrieves records by owner, dataset, filters, and cosine similarity |
-| `backend/analytics.py::report_context()` | Supplies the same retrieved source records and complete KPI evidence to every agent |
-| `backend/report_engine.py` | Routes live FastAPI requests to AutoGen or the verified local fallback |
-| `tests/test_agent_engine.py` | Verifies current client construction, agent order, grounding, criticism, and cleanup |
+| **Data Analyst** | Interprets the supplied metrics and records to identify trends, leading products and regions, campaign performance, and business risks. |
+| **Report Writer** | Organizes the analysis into a readable report with findings, business implications, and recommended actions. |
+| **Critic** | Reviews the draft for numerical consistency, unsupported claims, clarity, and alignment with the supplied data. |
 
-When `GROQ_API_KEY` is configured, the report engine executes this staged business-analysis workflow:
-
-~~~mermaid
+```mermaid
 flowchart TD
-    D["Dataset records"] --> E["MiniLM embeddings"]
-    E --> V["PostgreSQL vectors"]
-    Q["Business question"] --> R["Scoped vector retrieval"]
-    V --> R
-    R --> P["Source records and KPI snapshot"]
-    P --> A["AutoGen Analyst"]
-    P --> W["AutoGen Report Writer"]
-    P --> C{"AutoGen Critic"}
-    A --> W["AutoGen Report Writer"]
-    W --> C{"AutoGen Critic"}
-    C -->|Approved| O["Executive report"]
-    C -->|Revision required| W
-~~~
+    CTX["KPIs, chart series, and retrieved records"] --> A["Analyst"]
+    CTX --> W["Writer"]
+    CTX --> C{"Critic review"}
+    A -->|Findings| W
+    W -->|Draft| C
+    C -->|Approved| R["Report"]
+    C -->|Revision requested| A
+```
 
-### The agents
+The pipeline allows **one controlled revision cycle** through analysis and writing before a final critic review. Backend calculations provide the numerical foundation; the agents interpret those results and explain their business significance.
 
-| Stage | Responsibility |
-|---|---|
-| **Evidence lock** | Supplies the selected user's calculated KPIs, filters, rankings, chart series, and retrieved source records |
-| **01 · Data Analyst Agent** | Calculates signals, trends, top performers, risks, and notable changes |
-| **02 · Report Writer Agent** | Converts findings into a structured executive narrative with actionable recommendations |
-| **03 · Critic Agent** | Checks grounding, numerical consistency, clarity, and unsupported claims |
-| **Revision loop** | Sends rejected output back through analysis and writing before a final critic review |
+If the AI workflow cannot complete, the report engine falls back to a local Markdown report built from the calculated metrics. Dashboard analytics and local reporting can be used without an AI API key.
 
-The agent layer is deliberately separated from the analytics layer. AutoGen improves reasoning and narrative quality; it does not replace the calculated KPIs and charts.
+## PostgreSQL RAG
 
-### Production reliability strategy
+Retrieval-Augmented Generation connects report generation to records from the selected business dataset.
 
-~~~mermaid
+1. **Embed records:** MiniLM creates 384-dimensional embeddings on the CPU.
+2. **Persist vectors:** PostgreSQL stores embeddings in `record_embeddings.embedding` using the pgvector `vector(384)` type.
+3. **Scope retrieval:** The retrieval layer restricts eligible records by authenticated owner, dataset, and active filters.
+4. **Find relevant records:** Cosine similarity selects records relevant to the report request or business question.
+5. **Build shared context:** Retrieved records are combined with the calculated KPI and chart snapshot and supplied to the Analyst, Writer, and Critic.
+
+The retrieved records provide detailed context, while the analytics layer supplies aggregate metrics for the selected data. `RAG_TOP_K` controls the maximum number of retrieved source records per report and defaults to `6`.
+
+On Render, embeddings persist in PostgreSQL across application redeploys while the database is retained. The active web backend uses PostgreSQL vector storage; the original standalone ChromaDB workflow remains available through the optional legacy dependencies.
+
+## Architecture
+
+```mermaid
 flowchart TD
-    S["Generate report"] --> A{"AutoGen installed + GROQ key?"}
-    A -->|Yes| M["AutoGen multi-agent pipeline"]
-    A -->|No external AI| L["Verified local data engine"]
-    M --> X["Saved report"]
-    L --> X
-~~~
+    UI["React and TypeScript interface"] --> API["FastAPI backend"]
+    API --> DATA["Validation and column mapping"]
+    API --> MET["KPI and chart calculations"]
+    API --> REP["Report orchestrator"]
+    DATA --> DB[("PostgreSQL and pgvector")]
+    DB --> RAG["Scoped semantic retrieval"]
+    RAG --> REP
+    MET --> REP
+    REP --> AI["AutoGen and Groq"]
+    REP --> LOCAL["Local report engine"]
+    AI --> OUT["Saved reports and exports"]
+    LOCAL --> OUT
+```
 
-| Mode | Requirement | Result |
-|---|---|---|
-| **AutoGen multi-agent** | `GROQ_API_KEY` | Analyst → Writer → Independent Critic with one controlled revision loop |
-| **Verified local engine** | No AI credentials | Deterministic Markdown report generated from calculated data |
+The application combines a React frontend with a FastAPI backend. A multi-stage Docker build compiles the frontend and packages its assets with the Python application. FastAPI serves the interface and API from the same origin in production.
 
-> AutoGen AgentChat is pinned in the production dependency set and installed in the Render image. A provider outage never blocks core reporting: AI Analytic Platform records the failure server-side and immediately returns a complete evidence-grounded local report.
+PostgreSQL supports deployed persistence and vector retrieval. SQLite is the default database for local development. Authentication scopes dataset access, report retrieval, and exports to the signed-in account.
 
-## ✦ Product experience
+### Technology Stack
 
-- Futuristic dark-glass interface with original cobalt-and-gold artwork, atmospheric workspace backgrounds, and optimized WebP delivery
-- Responsive desktop, tablet, and mobile layouts
-- Secure registration, login, logout, and persistent sessions
-- Keyboard command palette with `Ctrl/⌘ + K`
-- Active-source switcher across dashboard and AI Studio
-- Loading, empty, validation, success, and failure states
-- Searchable report library with favorites
-- Markdown and structured JSON downloads, including the saved chart-data snapshot
-- Print-ready reports that retain KPI cards, plots, tables, and evidence seals
-- Optional email and Telegram report delivery
-
-## ⬡ Architecture
-
-~~~mermaid
-flowchart TD
-    U["Authenticated user"] --> UI["React command center"]
-    UI --> API["FastAPI application"]
-    API --> DB[("PostgreSQL / SQLite")]
-    API --> DS["Dataset validation + mapping"]
-    API --> AN["Deterministic analytics"]
-    API --> RE["Report orchestrator"]
-    RE --> AG["AutoGen + GROQ"]
-    RE --> LF["Verified local fallback"]
-    API --> EX["Exports + delivery"]
-~~~
-
-The production Docker image builds React with Node.js and copies the optimized assets into the Python runtime. FastAPI serves both the API and the single-page application from one Render service, keeping API requests and secure authentication cookies on the same origin.
-
-### Engineering decisions that matter
-
-| Decision | Why it matters |
+| Layer | Technologies |
 |---|---|
-| **Single-origin production** | React and FastAPI share one hostname, simplifying cookies, CORS, and deployment |
-| **Deterministic metrics** | Charts and KPIs do not depend on probabilistic LLM output |
-| **Fail-soft orchestration** | AutoGen → verified local engine prevents one provider failure from breaking reporting |
-| **Account-scoped queries** | Every dataset and report lookup is filtered by the authenticated owner |
-| **Multi-stage Docker build** | Node builds optimized assets; the final Python image only runs the application |
-| **Route-level code splitting** | Heavy report and chart views load only when required |
-| **Blueprint infrastructure** | Web service, PostgreSQL, secrets, and health checks are declared as code |
+| Frontend | React, TypeScript, Vite |
+| Backend | Python, FastAPI |
+| Agent orchestration | Microsoft AutoGen AgentChat |
+| Language model | Groq, configurable through `GROQ_MODEL` |
+| Embeddings | MiniLM, 384-dimensional vectors, CPU inference |
+| Data and vector storage | PostgreSQL, pgvector |
+| Local database | SQLite |
+| Authentication | Argon2 password hashing, signed session cookies |
+| Packaging and hosting | Docker, Render Blueprint |
+| Optional delivery | Gmail SMTP, Telegram Bot API |
 
-## ◫ Data Hub
+## Data Hub
 
-Open **Data Hub** and drop in a UTF-8 `.csv` or `.json` file.
+Data Hub accepts UTF-8 **CSV** and **JSON** files. Uploads are checked before use, and the mapping interface lets you review or correct detected fields.
 
-### Upload safeguards
+| Upload setting | Supported value |
+|---|---|
+| File formats | `.csv`, `.json` |
+| Maximum file size | 5 MB |
+| Maximum rows | 10,000 |
+| Maximum columns | 80 |
+| JSON structure | Array of objects, or an object containing a `data`, `rows`, `records`, or `items` array |
 
-- Maximum file size: **5 MB**
-- Maximum rows: **10,000**
-- Maximum columns: **80**
-- Supported formats: **CSV and JSON**
-- Automatic header normalization and duplicate-safe names
-- Numeric/text type detection
-- Account-level dataset isolation
+### Smart Column Mapping
 
-JSON can be an array of objects or an object containing a `data`, `rows`, `records`, or `items` array.
+The platform normalizes headers, handles duplicate column names, detects numeric and text fields, and recognizes common business aliases.
 
-The smart mapper recognizes aliases such as:
-
-| Uploaded column | AI Analytic Platform field |
+| Uploaded column aliases | Mapped field |
 |---|---|
 | `net_sales`, `sales_amount`, `gmv` | `revenue` |
 | `quantity`, `qty`, `volume` | `units_sold` |
@@ -216,277 +174,243 @@ The smart mapper recognizes aliases such as:
 | `views`, `reach`, `exposures` | `impressions` |
 | `orders`, `leads`, `signups` | `conversions` |
 
-Every suggested mapping can be reviewed and corrected before the dataset becomes active.
+### Sales Data
 
-### Sales template
+Sales datasets require a `revenue` field. Additional dimensions support product, region, category, and period analysis.
 
-`revenue` is required. Additional dimensions unlock richer filtering and charts.
-
-~~~csv
+```csv
 product,region,quarter,revenue,units_sold,category
 Analytics Pro,North,Q1 2026,125000,84,SaaS
-~~~
+Growth Suite,South,Q1 2026,98000,65,SaaS
+Analytics Pro,West,Q2 2026,142000,96,SaaS
+```
 
-### Marketing template
+### Marketing Data
 
-At least one of `budget`, `impressions`, `clicks`, or `conversions` is required.
+Marketing datasets require at least one of `budget`, `impressions`, `clicks`, or `conversions`. Include the fields needed for the metrics you want to explore.
 
-~~~csv
+```csv
 campaign_name,channel,quarter,budget,impressions,clicks,conversions
-Launch Campaign,Email,Q1 2026,5000,120000,6200,410
-~~~
+Product Launch,Email,Q1 2026,5000,120000,6200,410
+Search Growth,Search,Q1 2026,12000,250000,10800,680
+Brand Awareness,Social,Q2 2026,8500,310000,9400,520
+```
 
-Both starter templates are downloadable inside Data Hub.
+Starter templates are also available inside Data Hub.
 
-## ◇ Intelligence dashboard
+## Analytics Dashboard
 
-AI Analytic Platform recalculates the complete dashboard whenever the user changes a dataset or filter:
+The dashboard updates as the active dataset or filters change. Available metrics and visualizations depend on the fields present in the selected data.
 
-- Total revenue and period-over-period movement
-- Units sold
-- Marketing budget and cost per conversion
-- Impressions, clicks, conversions, CTR, and conversion rate
-- Quarterly revenue velocity and revenue by region
-- Top product drivers and channel-level CPA
-- Full impression → click → conversion funnel
-- Automatically detected business signals
-- Recent generated reports
-
-## ✧ Report Studio
-
-| Mode | Best used for |
+| Area | Analytics |
 |---|---|
-| **Executive brief** | Leadership-ready overview of revenue and marketing performance |
-| **Sales performance** | Revenue, units, products, regions, and momentum |
-| **Campaign intelligence** | Spend, conversion quality, channel efficiency, and CPA |
-| **Quarterly pulse** | Period changes, growth signals, risks, and next-quarter priorities |
-| **Product analysis** | Product contribution, concentration, and opportunity |
-| **Regional analysis** | Market strength, regional mix, and expansion potential |
-| **Ask the data** | A custom business question with optional analysis instructions |
+| **Sales performance** | Total revenue, units sold, period movement, and quarterly trends |
+| **Product performance** | Product rankings, revenue contribution, and product mix |
+| **Regional performance** | Revenue by region and market contribution |
+| **Marketing activity** | Budget, impressions, clicks, and conversions |
+| **Campaign efficiency** | Click-through rate, conversion rate, cost per conversion, and channel-level CPA |
+| **Acquisition funnel** | Movement from impressions to clicks to conversions |
 
-Reports can be filtered, saved, searched, favorited, exported, deleted, and optionally delivered by email or Telegram.
+The workspace includes business signals, recent reports, an active-source switcher, and a keyboard command palette accessible with **Ctrl + K** or **⌘ + K**.
 
-### Every report is a visual evidence room
+## Report Studio
 
-The report page does not merely decorate an AI narrative. It reconstructs plots from the immutable `chart_data` snapshot stored alongside that report, so the visuals, KPI strip, narrative, and JSON export all refer to the same filtered records.
+Choose from seven report modes or use a custom question to guide the analysis.
 
-| Plot | Decision it supports |
+| Report mode | Focus |
 |---|---|
-| **Revenue trajectory** | How did commercial output move across the available periods? |
-| **Regional contribution** | Which markets lead, and where is performance concentrated? |
-| **Product-mix donut** | Which offers dominate the current revenue portfolio? |
-| **Acquisition momentum** | How did marketing spend and conversions move together? |
-| **Channel efficiency** | Which channels combine conversion volume with attractive CPA? |
-| **Acquisition funnel** | Where does reach fall away between impressions, clicks, and conversions? |
+| **Executive Brief** | An overview of commercial performance, key changes, risks, and priorities |
+| **Sales Performance** | Revenue, units, products, regions, and sales momentum |
+| **Campaign Intelligence** | Marketing spend, conversions, channel efficiency, and acquisition costs |
+| **Quarterly Pulse** | Period comparisons, growth patterns, and next-quarter priorities |
+| **Product Analysis** | Product contribution, revenue concentration, and opportunities |
+| **Regional Analysis** | Regional performance, market mix, and expansion opportunities |
+| **Ask the Data** | A custom business question with optional analysis instructions |
 
-Plots are responsive on screen, included in browser print/PDF output, conditionally shown only when supporting data exists, and restored exactly when a saved report is reopened.
+Example questions:
 
-## 🚀 Run it
+- Which products contribute most to revenue, and how concentrated is the product mix?
+- Which regions account for the strongest quarter-over-quarter growth?
+- Which marketing channels have the lowest cost per conversion?
+- Where does the acquisition funnel show the largest drop-off?
 
-### Option A — Docker
+### Visual Reports
 
-~~~bash
+Reports include charts when the selected data supports them.
+
+| Chart | What it shows |
+|---|---|
+| **Revenue trajectory** | Revenue movement across available periods |
+| **Regional contribution** | Revenue distribution across markets |
+| **Product mix** | Each product's share of revenue |
+| **Acquisition momentum** | Marketing spend and conversions over time |
+| **Channel efficiency** | Conversion volume and cost per acquisition by channel |
+| **Acquisition funnel** | Impressions, clicks, and conversions |
+
+Each saved report retains its `chart_data` snapshot. Reopening the report restores its original chart series, and JSON exports include that snapshot. Browser printing preserves the report's KPI cards, plots, and tables.
+
+Reports can be saved, searched, favorited, downloaded as Markdown or JSON, printed to PDF, or delivered through configured email and Telegram integrations.
+
+## Getting Started
+
+Run the following commands from the project root. Local development requires **Python 3.12+**, **Node.js 20+**, and **npm**.
+
+### Option 1: Docker
+
+Build and start the application:
+
+```bash
 docker build -t ai-analytic-platform .
-docker run --rm -p 10000:10000 \
-  -e JWT_SECRET="replace-with-a-long-random-secret" \
-  ai-analytic-platform
-~~~
+docker run --rm -p 10000:10000 -e JWT_SECRET="replace-with-a-long-random-secret" ai-analytic-platform
+```
 
-Open <http://localhost:10000>, create an account, and start exploring. The bundled data and verified local report engine work without an AI key.
+Open [http://localhost:10000](http://localhost:10000), create an account, and explore the bundled data. Local reporting works without an AI API key.
 
-### Option B — Local development
+To run with environment values from a configured `.env` file:
 
-Requirements: Python 3.12+, Node.js 20+, and npm.
+```bash
+docker run --rm -p 10000:10000 --env-file .env ai-analytic-platform
+```
 
-#### Full web application
+Use a persistent PostgreSQL database through `DATABASE_URL` when you need data to survive disposable container runs.
 
-~~~bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements-dev.txt
+### Option 2: Local Development
 
-cd frontend
-npm ci
-npm run dev
-~~~
+#### Start the backend
 
-In a second terminal:
+<details open>
+<summary><strong>Windows PowerShell</strong></summary>
 
-~~~bash
-source .venv/bin/activate
-uvicorn app:app --reload --port 8000
-~~~
-
-Open <http://localhost:5173>. Vite proxies `/api` requests to FastAPI on port `8000`. Interactive API documentation is available at <http://localhost:8000/api/docs>.
-
-<details>
-<summary><strong>Windows PowerShell commands</strong></summary>
-
-~~~powershell
+```powershell
 py -m venv .venv
-.\.venv\Scripts\Activate.ps1
-pip install -r requirements-dev.txt
-
-cd frontend
-npm ci
-npm run dev
-~~~
-
-Start the API from a second PowerShell window:
-
-~~~powershell
-.\.venv\Scripts\Activate.ps1
-uvicorn app:app --reload --port 8000
-~~~
+.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+Copy-Item .env.example .env
+.\.venv\Scripts\python.exe -m uvicorn app:app --reload --port 8000
+```
 
 </details>
 
-#### Activate Microsoft AutoGen
+<details>
+<summary><strong>macOS / Linux</strong></summary>
 
-AutoGen AgentChat is already installed by `requirements.txt` and `requirements-dev.txt`. Add a GROQ key before starting FastAPI:
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements-dev.txt
+cp .env.example .env
+uvicorn app:app --reload --port 8000
+```
 
-~~~env
+</details>
+
+#### Start the frontend
+
+Open a second terminal in the project root:
+
+```bash
+cd frontend
+npm ci
+npm run dev
+```
+
+| Service | Local URL |
+|---|---|
+| Application | [http://localhost:5173](http://localhost:5173) |
+| API documentation | [http://localhost:8000/api/docs](http://localhost:8000/api/docs) |
+| Health endpoint | [http://localhost:8000/api/health](http://localhost:8000/api/health) |
+
+Vite proxies `/api` requests to the FastAPI server on port `8000`.
+
+### Enable AI Reports
+
+Configure the following values in `.env` and restart the backend:
+
+```dotenv
 GROQ_API_KEY=your_groq_api_key
 GROQ_MODEL=llama-3.3-70b-versatile
-~~~
+```
 
-With the key configured, `backend/agent_engine.py` runs the deployed Analyst → Writer → Critic pipeline. Without the key—or if the provider is temporarily unavailable—AI Analytic Platform automatically uses deterministic local reporting. Install `requirements-legacy.txt` only if you also want to run the original standalone Streamlit/ChromaDB scripts.
+AutoGen AgentChat is included in the application dependencies. `GROQ_API_KEY` enables the Analyst, Writer, and Critic workflow. Without a configured key, reports use the local report engine.
 
-#### Test the production-style single origin
+### Serve the Frontend Through FastAPI
 
-~~~bash
-cd frontend && npm run build && cd ..
-uvicorn app:app --host 0.0.0.0 --port 10000
-~~~
+Build the frontend from the project root:
 
-## ☁ Deploy to Render
-
-**PostgreSQL RAG update:** the active backend now stores MiniLM embeddings in `record_embeddings.embedding` (`vector(384)` on PostgreSQL). It retrieves account-scoped records and passes the same source evidence to the Analyst, Writer, and Critic. See [PostgreSQL RAG setup and verification](docs/POSTGRES_RAG_SETUP.md) for updating an existing Render service, checking stored embeddings, and running integration tests.
-
-The repository contains a complete `render.yaml` Blueprint.
-
-1. Push the extracted project to GitHub.
-2. In Render, choose **New → Blueprint**.
-3. Connect the repository.
-4. Confirm the `ai-analytic-platform` web service and `ai-analytic-platform-db` PostgreSQL database.
-5. Supply `GROQ_API_KEY` when the Blueprint prompts for the unsynced secret.
-6. Deploy.
-
-Render will build React and FastAPI, cache MiniLM model weights in the Docker image, provision PostgreSQL, inject `DATABASE_URL`, generate `JWT_SECRET`, expose port `10000`, and monitor `/api/health`. Startup enables the `vector` extension and creates the embedding/evidence tables. Dataset embeddings persist in PostgreSQL across web-service redeploys while that database is retained.
-
-No separate frontend service, backend URL, or production CORS rewrite is needed.
-
-### Enabling full AutoGen on Render
-
-No Dockerfile edit is required. The production image already installs pinned AutoGen AgentChat packages, and `render.yaml` declares `GROQ_API_KEY` as a protected unsynced value so Render requests it during Blueprint creation. `/api/system/status` will report `autogen_enabled: true` and identify the active GROQ model after deployment.
-
-## ⚙ Configuration
-
-Copy `.env.example` for local development. Render provides the mandatory production values through `render.yaml`.
-
-| Variable | Required | Purpose |
-|---|---:|---|
-| `DATABASE_URL` | Production | PostgreSQL URL; defaults to local SQLite |
-| `JWT_SECRET` | Production | Signs session tokens; generated automatically by Render |
-| `ENVIRONMENT` | No | Use `production` for secure cookies and HSTS |
-| `SESSION_MINUTES` | No | Login duration; defaults to 10,080 minutes |
-| `CORS_ORIGINS` | Development | Comma-separated development frontend origins |
-| `GROQ_API_KEY` | AutoGen/AI | Activates the production AutoGen AgentChat pipeline |
-| `GROQ_MODEL` | No | Defaults to `llama-3.3-70b-versatile` |
-| `GROQ_API_URL` | No | GROQ OpenAI-compatible chat-completions endpoint |
-| `EMBEDDING_CACHE_DIR` | No | Model-weight cache; `/app/.cache/fastembed` in the Docker image |
-| `EMBEDDING_LOCAL_FILES_ONLY` | Docker | `true` for the image's prefetched model; `false` permits an initial local model download |
-| `EMBEDDING_BATCH_SIZE` | No | CPU indexing batch size; default 16 |
-| `EMBEDDING_THREADS` | No | ONNX inference threads; default 1 |
-| `RAG_TOP_K` | No | Maximum retrieved source records per report; default 6 |
-| `GMAIL_USER` | Email | Sender account |
-| `GMAIL_APP_PASSWORD` | Email | Application password for SMTP delivery |
-| `TELEGRAM_BOT_TOKEN` | Telegram | Bot token for Telegram delivery |
-
-## 🔐 Security and reliability
-
-- Argon2 password hashing
-- Signed and expiring HTTP-only session cookies
-- Secure cookies and HSTS in production
-- Per-user authorization for every dataset and report lookup
-- Upload size, row, column, encoding, extension, and schema validation
-- ORM-backed database access and normalized safe filenames
-- Security response headers and gzip compression
-- Database connection pre-ping and health checks
-- Deterministic report fallback
-- No AI credentials required for core analytics
-
-For a serious production launch, use a paid persistent database plan, enable backups, rotate secrets, and add edge-level rate limiting.
-
-## 🔌 API surface
-
+```bash
+cd frontend
+npm run build
+cd ..
+```
+Start FastAPI using the project's Python environment:
+```bash
+python -m uvicorn app:app --host 0.0.0.0 --port 10000
+```
+On Windows, use `.\.venv\Scripts\python.exe` in place of `python` if the environment is not activated. Open [http://localhost:10000](http://localhost:10000) to use the frontend and API from the same origin.
+## Configuration
+Use `.env.example` as the starting point for local configuration. Keep API keys and database credentials out of version control.
+| Variable | Purpose | Default / usage |
+|---|---|---|
+| `DATABASE_URL` | Application database connection | Local SQLite by default; PostgreSQL for deployment |
+| `JWT_SECRET` | Signs session tokens | Set a strong secret; generated by the Render Blueprint |
+| `ENVIRONMENT` | Runtime environment | Set to `production` for production cookies and HSTS |
+| `SESSION_MINUTES` | Session duration | `10080` |
+| `CORS_ORIGINS` | Allowed frontend origins | Comma-separated development origins |
+| `GROQ_API_KEY` | Credentials for AI report generation | Required for the AutoGen workflow |
+| `GROQ_MODEL` | Model used by the agents | `llama-3.3-70b-versatile` |
+| `GROQ_API_URL` | Groq-compatible chat-completions endpoint | Optional override |
+| `EMBEDDING_CACHE_DIR` | Embedding model cache | `/app/.cache/fastembed` in Docker |
+| `EMBEDDING_LOCAL_FILES_ONLY` | Controls model download behavior | `true` for the prefetched Docker model; `false` permits a local download |
+| `EMBEDDING_BATCH_SIZE` | Records embedded per batch | `16` |
+| `EMBEDDING_THREADS` | ONNX inference threads | `1` |
+| `RAG_TOP_K` | Maximum retrieved records per report | `6` |
+| `GMAIL_USER` | Sender account for email delivery | Optional |
+| `GMAIL_APP_PASSWORD` | SMTP application password | Required for configured Gmail delivery |
+| `TELEGRAM_BOT_TOKEN` | Bot credentials for Telegram delivery | Optional |
+## Deployment
+The repository includes a Dockerfile and a `render.yaml` Blueprint for deploying the application with PostgreSQL.
+1. Push the project to GitHub.
+2. In Render, select **New → Blueprint** and connect the repository.
+3. Review the `ai-analytic-platform` web service and `ai-analytic-platform-db` database.
+4. Add `GROQ_API_KEY` to enable AI reporting.
+5. Deploy the Blueprint.
+The deployment builds the frontend, installs backend dependencies, caches the MiniLM model, and runs the combined application on port `10000`. The Blueprint supplies `DATABASE_URL`, generates `JWT_SECRET`, and configures `/api/health` as the health endpoint.
+Application startup enables the PostgreSQL `vector` extension and creates the required embedding and source-context tables. Stored datasets, reports, and embeddings remain in the database across web-service redeploys while the database is retained.
+## Authentication and Data Access
+- **Argon2 password hashing** for account credentials.
+- **Signed, expiring, HTTP-only cookies** for sessions.
+- **Secure cookies and HSTS** in production.
+- **Account-scoped queries** for datasets, reports, exports, and vector retrieval.
+- **Upload validation** for file size, row count, column count, encoding, format, and schema.
+- **ORM-backed database access**, normalized filenames, and security response headers.
+## API Reference
+Interactive API documentation is available at [`/api/docs`](http://localhost:8000/api/docs) when running locally.
 | Area | Endpoints |
 |---|---|
-| System | `GET /api/health`, `GET /api/system/status` |
-| Authentication | `POST /api/auth/register`, `POST /api/auth/login`, `POST /api/auth/logout`, `GET /api/auth/me` |
-| Datasets | `POST /api/datasets/upload`, `GET /api/datasets`, `GET/PATCH/DELETE /api/datasets/{id}` |
-| Analytics | `GET /api/meta/options`, `GET /api/dashboard` |
-| Reports | `POST /api/reports/generate`, `GET /api/reports`, `GET/PATCH/DELETE /api/reports/{id}` |
-| Output | `GET /api/reports/{id}/download`, `POST /api/reports/{id}/deliver` |
-
-FastAPI OpenAPI documentation is available at `/api/docs`.
-
-## ✅ Verification
-
-~~~bash
-pytest -q
-cd frontend && npm run build
-~~~
-
-The test suite verifies unauthenticated protection, registration, sessions, bundled analytics, CSV upload, alias-based mapping, custom dataset KPIs, richer chart snapshots, report generation, current AutoGen client construction, three-agent execution order, critic review, JSON export, deletion, and logout.
-
-## 🗂 Project map
-
-~~~text
-backend/
-  main.py               FastAPI routes and SPA serving
-  security.py           Authentication, hashing, and sessions
-  datasets.py           Upload parsing, validation, and field mapping
-  analytics.py          Verified KPI and chart calculations
-  agent_engine.py       Production AutoGen Analyst/Writer/Critic pipeline
-  report_engine.py      AutoGen/local report selection and fail-soft routing
-frontend/
-  src/                  React application
-  public/images/        Original AI Analytic Platform visual assets
-  dist/                 Optimized production build
-data/                   Bundled sales and marketing records
-tests/                  API and AutoGen orchestration tests
-agent.py                Original standalone agent workflow (compatibility)
-report_generator.py     Original standalone report workflow (compatibility)
-requirements.txt        Production FastAPI + AutoGen dependencies
-requirements-legacy.txt Optional Streamlit, ChromaDB, and delivery dependencies
-Dockerfile              Multi-stage production image
-render.yaml             Render Blueprint
-app.py                  ASGI entry point
-~~~
-
-## ♡ Health check
-
-~~~bash
-curl http://localhost:10000/api/health
-~~~
-
-Expected response:
-
-~~~json
-{
-  "status": "healthy",
-  "service": "ai-analytic-platform-api",
-  "version": "2.0.0"
-}
-~~~
-
----
-
-<div align="center">
-
-### Built to turn business data into decisions—not just another dashboard.
-
-**FastAPI · React · AutoGen · GROQ · PostgreSQL · Docker · Render**
-
-</div>
+| System | `GET /api/health` · `GET /api/system/status` |
+| Authentication | `POST /api/auth/register` · `POST /api/auth/login` · `POST /api/auth/logout` · `GET /api/auth/me` |
+| Dataset collection | `POST /api/datasets/upload` · `GET /api/datasets` |
+| Dataset management | `GET`, `PATCH`, `DELETE /api/datasets/{id}` |
+| Analytics | `GET /api/meta/options` · `GET /api/dashboard` |
+| Report generation | `POST /api/reports/generate` |
+| Report management | `GET /api/reports` · `GET`, `PATCH`, `DELETE /api/reports/{id}` |
+| Export and delivery | `GET /api/reports/{id}/download` · `POST /api/reports/{id}/deliver` |
+## Project Structure
+| Path | Responsibility |
+|---|---|
+| `app.py` | ASGI entry point |
+| `backend/main.py` | FastAPI routes and frontend serving |
+| `backend/security.py` | Authentication, password hashing, and sessions |
+| `backend/datasets.py` | Upload parsing, validation, and field mapping |
+| `backend/analytics.py` | KPI calculations, chart series, and report context |
+| `backend/embeddings.py` | MiniLM embedding generation |
+| `backend/retrieval.py` | PostgreSQL vector storage and scoped retrieval |
+| `backend/agent_engine.py` | AutoGen Analyst, Writer, and Critic workflow |
+| `backend/report_engine.py` | Report orchestration and local fallback |
+| `frontend/src/` | React application |
+| `frontend/public/images/` | Interface visual assets |
+| `data/` | Bundled sales and marketing datasets |
+| `requirements.txt` | Production dependencies |
+| `requirements-dev.txt` | Development dependencies |
+| `requirements-legacy.txt` | Optional standalone Streamlit and ChromaDB dependencies |
+| `Dockerfile` | Application image and frontend build |
+| `render.yaml` | Render service and database configuration |
