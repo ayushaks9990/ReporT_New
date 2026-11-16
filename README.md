@@ -22,7 +22,7 @@
   <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
 </p>
 <p align="center">
-  <a href="https://ai-analytic-platform.onrender.com/login">
+  <a href="https://ai-analytic-platform-4wfy.onrender.com/login">
     <img src="https://img.shields.io/badge/Live%20Demo-Visit%20Website-success?style=for-the-badge" alt="Live Demo" />
   </a>
 </p>
